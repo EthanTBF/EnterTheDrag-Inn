@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"steaks",
-    "path":"folders/Sprites/steaks.yy",
+    "name":"food",
+    "path":"folders/Sprites/food.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
