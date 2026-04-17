@@ -61,7 +61,7 @@ if (mouse_check_button_released(mb_left)) {
 }
 
 // Exit station
-if (keyboard_check_pressed(vk_escape)) {
+if (keyboard_check_pressed(ord("E")) or keyboard_check_pressed(vk_escape)) {
     obj_player.can_move = true // Re-enable movement
     global.is_interacting = false
     instance_destroy()

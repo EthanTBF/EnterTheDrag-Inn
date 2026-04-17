@@ -1,4 +1,5 @@
 global.is_interacting = false
+global.total_score = 0
 
 day_time_max = 180
 day_time = day_time_max

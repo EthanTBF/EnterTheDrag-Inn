@@ -8,4 +8,6 @@ if (holding_item == "meat") {
 	draw_sprite(spr_meal, 0, x + 12, y + 8)
 } else if (holding_item == "burnt_meal") {
 	draw_sprite(spr_meal_burnt, 0, x + 12, y + 8)
+} else if (holding_item == "blanket") {
+	draw_sprite(spr_blanket, 0, x + 8, y + 70)
 }
