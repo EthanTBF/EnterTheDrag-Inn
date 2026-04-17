@@ -4,5 +4,6 @@ if (!game_over) {
     } else {
         day_time = 0
         game_over = true
+		room_goto(rm_game_over);
     }
 }
