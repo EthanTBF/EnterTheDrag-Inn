@@ -68,7 +68,7 @@ if (hearth != noone) {
     if (is_napping) {
         hearth.is_active = false
     } 
-    // Priority 2: If happiness is too low, the dragon becomes "disturbed" | hearth goes cold [cite: 87]
+    // Priority 2: If happiness is too low, the dragon becomes "disturbed"
     else if (drg_happiness < 30) {
         hearth.is_active = false
     } 
@@ -79,7 +79,7 @@ if (hearth != noone) {
 }
 
 // Lose Condition: Tantrum 
-if (drg_boredom <= 0 || drg_hunger <= 0 || drg_tiredness <= 0) {
+if (drg_happiness == 0) {
     show_message("The Dragon threw a tantrum! Shift Failed.")
     room_restart()
 }
