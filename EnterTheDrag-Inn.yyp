@@ -65,6 +65,7 @@
     {"id":{"name":"spr_hearth","path":"sprites/spr_hearth/spr_hearth.yy",},},
     {"id":{"name":"spr_meal_burnt","path":"sprites/spr_meal_burnt/spr_meal_burnt.yy",},},
     {"id":{"name":"spr_meal","path":"sprites/spr_meal/spr_meal.yy",},},
+    {"id":{"name":"spr_new_player","path":"sprites/spr_new_player/spr_new_player.yy",},},
     {"id":{"name":"spr_order_ticket","path":"sprites/spr_order_ticket/spr_order_ticket.yy",},},
     {"id":{"name":"spr_plate","path":"sprites/spr_plate/spr_plate.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
