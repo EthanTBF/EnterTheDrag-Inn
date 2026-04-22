@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_cooler",
-    "path":"sprites/spr_cooler/spr_cooler.yy",
+    "name":"spr_new_cooler",
+    "path":"sprites/spr_new_cooler/spr_new_cooler.yy",
   },
   "spriteMaskId":null,
   "visible":true,
