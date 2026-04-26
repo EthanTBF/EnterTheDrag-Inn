@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_trashcan",
-    "path":"sprites/spr_trashcan/spr_trashcan.yy",
+    "name":"spr_new_trashcan",
+    "path":"sprites/spr_new_trashcan/spr_new_trashcan.yy",
   },
   "spriteMaskId":null,
   "visible":true,

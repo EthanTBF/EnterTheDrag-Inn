@@ -8,7 +8,7 @@ for (var i = 0; i < ds_list_size(obj_order_manager.order_list); i++) {
     // Calculate X so that index 0 is on the right, index 1 is to its left, etc.
     var tx = ticket_x_start - (i * spacing)
 
-    draw_sprite(spr_order_ticket, 0, tx, ticket_y)
+    draw_sprite(spr_order_ticket_meat, 0, tx, ticket_y)
     
     // Draw the text
     draw_set_halign(fa_center)
