@@ -1,3 +1,4 @@
+
 // Player Movement
 if (can_move) {
 	var _hmove = keyboard_check(ord("D")) - keyboard_check(ord("A"))
@@ -28,4 +29,5 @@ if (can_move) {
 	if (abs(speed) < 0.1) {
 		speed = 0
 	}
+	
 }
