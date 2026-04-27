@@ -32,3 +32,11 @@ option[3, 6] = "Back";
 op_length = 0; // How long list of options is
 
 menu_level = 0;
+
+default_ui_sounds[0] = Blip2;
+default_ui_sounds[1] = Blip6;
+default_ui_sounds[2] = Blip7;
+default_ui_sounds[3] = Blip8;
+default_ui_sounds[4] = Blip9;
+
+audio_group_set_gain(audiogroup_default, 0.5, 0);
