@@ -18,7 +18,8 @@ if (distance_to_object(obj_player) < 40) {
                 show_debug_message("Meal Delivered!")
                 
                 // Add to the score
-                global.total_score += 100 
+                global.total_score += 100
+				global.customers_served += 1;
                 
             } else {
                 // If the player tries to deliver a meal but no one ordered one

@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_toppings_counter",
-    "path":"sprites/spr_toppings_counter/spr_toppings_counter.yy",
+    "name":"spr_new_counter",
+    "path":"sprites/spr_new_counter/spr_new_counter.yy",
   },
   "spriteMaskId":null,
   "visible":true,
