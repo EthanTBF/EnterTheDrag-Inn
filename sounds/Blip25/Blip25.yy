@@ -22,5 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"Blip25.wav",
-  "volume":0.35,
+  "volume":1.0,
 }
