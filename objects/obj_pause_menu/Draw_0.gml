@@ -1,5 +1,11 @@
-// Set font FIRST so string_width uses correct font
-draw_set_font(fnt_ui);
+// Save state
+var _old_font = draw_get_font();
+var _old_halign = draw_get_halign();
+
+// NOW change draw settings
+draw_set_font(fnt_cast);
+draw_set_valign(fa_top);
+draw_set_halign(fa_left);
 
 // Dynamically get width
 var new_w = 0;
@@ -13,17 +19,14 @@ width  = new_w + op_border * 2;
 height = op_border * 2 + (string_height(option[menu_level, 0]) * op_length) + ((op_length - 1) * op_space);
 
 // Center Menu
-x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2 - width / 2;
-y = camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) / 2 - height / 2;
+x = round(camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2 - width / 2);
+y = round(camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) / 2 - height / 2);
 
 // NOW draw background with correct size
-draw_sprite_ext(sprite_index, image_index, x, y, width / sprite_width, height / sprite_height, 0, c_white, 1);// Save previous draw state
-var _old_font = draw_get_font();
-var _old_halign = draw_get_halign();
-var _old_valign = draw_get_valign();
+draw_sprite_ext(sprite_index, image_index, x, y, (width / sprite_width), height / sprite_height, 0, c_white, 1);// Save previous draw state
 
 // Set your UI draw state
-draw_set_font(fnt_ui);
+draw_set_font(fnt_cast);
 draw_set_valign(fa_top);
 draw_set_halign(fa_left);
 
@@ -43,7 +46,7 @@ for (var i = 0; i < op_length; i++) {
     );
 }
 
-// Restore previous draw state (IMPORTANT)
+
+// Restore state
 draw_set_font(_old_font);
 draw_set_halign(_old_halign);
-draw_set_valign(_old_valign);
