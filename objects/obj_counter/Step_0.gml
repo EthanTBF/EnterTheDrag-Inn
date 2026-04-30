@@ -3,7 +3,7 @@ if (distance_to_object(obj_player) < 40) {
     if (keyboard_check_pressed(ord("E"))) {
         
         // Only accept the item if it's a finished meal
-        if (obj_player.holding_item == "meal") {
+        if (string_pos("meal", obj_player.holding_item) > 0) {
             
             // Check if there is an active order to fulfill
             if (ds_list_size(obj_order_manager.order_list) > 0) {

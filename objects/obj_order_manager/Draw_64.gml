@@ -18,7 +18,7 @@ for (var i = 0; i < ds_list_size(obj_order_manager.order_list); i++) {
 			  break;
         
 		 case order_type.BURGER:
-			  spr = spr_order_ticket_burger;
+			  spr = spr_order_ticket_burger_bacon;
 			  break;
 }
 

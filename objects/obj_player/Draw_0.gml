@@ -11,3 +11,6 @@ if (holding_item == "meat") {
 } else if (holding_item == "blanket") {
 	draw_sprite(spr_blanket, 0, x + 8, y + 70)
 }
+else if (holding_item == "meal" || holding_item == "meal_bacon" || holding_item == "meal_bun" || holding_item == "meal_bacon_bun") {
+    draw_sprite(spr_meal, 0, x + 12, y + 8)
+}
