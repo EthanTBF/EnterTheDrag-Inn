@@ -25,20 +25,20 @@ if not global.game_paused{
 	            global.current_level += 1;
 	            global.customers_served = 0;
 
-	            switch (global.current_level) {
-	                case 1:
-	                    room_goto(rm_lunch_rush);
-	                    show_debug_message("Moving to Lunch Rush");
-	                    break;
-	                case 2:
-	                    room_goto(rm_dinner_rush);
-	                    show_debug_message("Moving to Dinner Rush");
-	                    break;
-	                default:
-	                    room_goto(rm_win);
-	                    show_debug_message("Game is over - You win!");
-	                    break;
-	            }
+	            global.current_level += 1;
+				global.customers_served = 0;
+
+				if (global.current_level == 1) {
+					room_goto(rm_lunch_rush);
+					show_debug_message("Moving to Lunch Rush");
+				}
+				else if (global.current_level == 2) {
+					room_goto(rm_dinner_rush);
+					show_debug_message("Moving to Dinner Rush");
+				}
+				else {
+					room_goto(rm_game_over);
+				}
 	        }
 	    }
 	}

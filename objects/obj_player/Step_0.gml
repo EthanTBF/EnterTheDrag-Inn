@@ -31,3 +31,11 @@ if (can_move) {
 	}
 	
 }
+
+// Check if player is moving
+if (abs(hspeed) > 0 || abs(vspeed) > 0) {
+    image_speed = 1; // play animation
+} else {
+    image_speed = 0; // stop animation
+    image_index = 0; // reset to first frame (idle)
+}

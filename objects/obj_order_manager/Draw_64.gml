@@ -8,8 +8,22 @@ for (var i = 0; i < ds_list_size(obj_order_manager.order_list); i++) {
     // Calculate X so that index 0 is on the right, index 1 is to its left, etc.
     var tx = ticket_x_start - (i * spacing)
 
-    draw_sprite(spr_order_ticket_meat, 0, tx, ticket_y)
-    
+	var order = order_list[| i];
+
+	var spr;
+
+	switch (order) {
+		 case order_type.CHICKEN:
+			  spr = spr_order_ticket_chicken_leg;
+			  break;
+        
+		 case order_type.BURGER:
+			  spr = spr_order_ticket_burger;
+			  break;
+}
+
+draw_sprite(spr, 0, tx, ticket_y);
+	
     // Draw the text
     draw_set_halign(fa_center)
     
