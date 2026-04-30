@@ -62,7 +62,38 @@ if not global.game_paused{
 	        drg_tiredness = 100 // Instant replenishment
 	    }
 	}
+		if (drg_happiness >= 50 && !is_napping) {
+	    sprite_index = spr_dragon
+	    image_speed = 0.2
+	    anger_frame = 0
+	    anger_timer = 0
+	    image_index = 0
+	}
 
+	if (drg_happiness < 50 && !is_napping) {
+	    sprite_index = spr_dragon_angry
+	    image_speed = 0
+
+	    anger_timer += 1
+
+	    if (anger_timer >= anger_interval) {
+	        anger_timer = 0
+	        anger_frame += 1
+	    }
+
+	    anger_frame = clamp(anger_frame, 0, 5)
+	    image_index = anger_frame
+
+	    if (anger_frame >= 5) {
+	        is_napping = true
+	        nap_timer = 180
+	    }
+	}
+
+	if (is_napping) {
+	    sprite_index = spr_dragon_sleeping
+	    image_speed = 0.1
+	}
 	// Update the hearth
 	var hearth = instance_find(obj_hearth, 0)
 	if (hearth != noone) {
