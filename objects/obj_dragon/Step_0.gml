@@ -19,10 +19,11 @@ if not global.game_paused{
 
 	// Feed dragon
 	if (distance_to_object(obj_player) < 80 && keyboard_check_pressed(ord("E"))) {
-	    if (obj_player.holding_item == "meat") {
-	        drg_hunger = 100
-	        obj_player.holding_item = "none"
-	    }
+	    if (obj_player.holding_item == "meat" || obj_player.holding_item == "steak" || obj_player.holding_item == "chicken" || obj_player.holding_item == "patty") {
+			drg_hunger = 100
+			obj_player.holding_item = "none"
+			obj_player.holding_sprite = noone
+			}
 	}
 
 	// Pet dragon

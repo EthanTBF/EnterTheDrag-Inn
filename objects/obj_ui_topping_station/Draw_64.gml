@@ -3,42 +3,59 @@ draw_set_alpha(0.6);
 draw_set_color(c_black);
 draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 draw_set_alpha(1);
-
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-draw_set_font(fnt_ui);
-
-// Title
-draw_text(ui_x, ui_y - 150, "TOPPING STATION");
-
-// Bacon button
-var bacon_col = has_bacon ? c_lime : c_dkgray;
-draw_set_color(bacon_col);
-draw_circle(ui_x - 100, ui_y, 60, false);
 draw_set_color(c_white);
-draw_sprite(spr_bacon, 0, ui_x - 100, ui_y);
-draw_text(ui_x - 100, ui_y + 80, "BACON");
 
-// Bun button
-var bun_col = has_bun ? c_lime : c_dkgray;
-draw_set_color(bun_col);
-draw_circle(ui_x + 100, ui_y, 60, false);
-draw_set_color(c_white);
-draw_sprite(spr_bun, 0, ui_x + 100, ui_y);
-draw_text(ui_x + 100, ui_y + 80, "BUN");
+// Draw popup
+draw_sprite(popup_sprite, 0, popup_x, popup_y);
 
-// Current meal preview text
-var preview = "Plain Burger";
-if (has_bacon && has_bun) preview = "Burger + Bacon + Bun";
-else if (has_bacon) preview = "Burger + Bacon";
-else if (has_bun) preview = "Burger + Bun";
-draw_text(ui_x, ui_y + 160, preview);
+// Draw topping sprites in the boxes
+draw_sprite_ext(bacon_sprite, 0, popup_x + bacon_slot_x, popup_y + bacon_slot_y, 0.8, 0.8, 0, c_white, 1);
+draw_sprite_ext(bun_sprite, 0, popup_x + bun_slot_x, popup_y + bun_slot_y, 0.8, 0.8, 0, c_white, 1);
 
-draw_text(ui_x, ui_y + 200, "[E] Done");
+// Draw meal preview / drop target
+if (obj_player.holding_item == "meal") {
+    draw_sprite_ext(spr_meal, 0, meal_x, meal_y, 1.2, 1.2, 0, c_white, 1);
+}
+else if (obj_player.holding_item == "meal_bacon") {
+    draw_sprite_ext(spr_meal, 0, meal_x, meal_y, 1.2, 1.2, 0, c_white, 1);
+    draw_sprite_ext(spr_bacon, 0, meal_x, meal_y - 18, 0.65, 0.65, 0, c_white, 1);
+}
+else if (obj_player.holding_item == "meal_bun") {
+    draw_sprite_ext(spr_meal, 0, meal_x, meal_y, 1.2, 1.2, 0, c_white, 1);
+    draw_sprite_ext(spr_bun, 0, meal_x, meal_y - 24, 0.65, 0.65, 0, c_white, 1);
+}
+else if (obj_player.holding_item == "meal_bacon_bun") {
+    draw_sprite_ext(spr_meal, 0, meal_x, meal_y, 1.2, 1.2, 0, c_white, 1);
+    draw_sprite_ext(spr_bacon, 0, meal_x, meal_y - 18, 0.65, 0.65, 0, c_white, 1);
+    draw_sprite_ext(spr_bun, 0, meal_x, meal_y - 24, 0.65, 0.65, 0, c_white, 1);
+}
+else {
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    draw_set_color(c_white);
+    draw_text(meal_x, meal_y, "Need cooked meat first");
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    draw_set_color(c_white);
+}
 
-// Reset draw state
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_font(-1);
-draw_set_color(c_white);
-draw_set_alpha(1);
+// Draw dragged topping
+if (is_dragging_topping && drag_topping_sprite != noone) {
+    var mx = device_mouse_x_to_gui(0);
+    var my = device_mouse_y_to_gui(0);
+
+    draw_sprite_ext(drag_topping_sprite, 0, mx, my, 0.9, 0.9, 0, c_white, 0.8);
+}
+
+// Feedback message
+if (message_timer > 0) {
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    draw_set_color(c_white);
+
+    draw_text(ui_x, popup_y + popup_h - 55, message);
+
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    draw_set_color(c_white);
+}

@@ -12,7 +12,8 @@ if (distance_to_object(obj_player) < 40) {
                 ds_list_delete(obj_order_manager.order_list, 0)
                 
                 // 2. Reset player's hand
-                obj_player.holding_item = "none"
+                obj_player.holding_item = "none";
+				obj_player.holding_sprite = noone;
                 
                 // Success feedback
                 show_debug_message("Meal Delivered!")

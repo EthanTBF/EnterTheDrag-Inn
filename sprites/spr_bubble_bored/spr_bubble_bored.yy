@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"bubbles",
-    "path":"folders/Sprites/bubbles.yy",
+    "path":"folders/Sprites/assorted dragon sprites/bubbles.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
