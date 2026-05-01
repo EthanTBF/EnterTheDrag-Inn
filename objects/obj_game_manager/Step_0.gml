@@ -11,7 +11,7 @@ if (!global.game_paused) {
 
         // Tutorial skip
         if (room == rm_tutorial_level) {
-            if (keyboard_check_pressed(vk_space)) {
+            if (keyboard_check(vk_control) && keyboard_check_pressed(vk_space)) {
                 global.current_level = 2;
                 global.customers_served = 0;
                 day_time = day_time_max;

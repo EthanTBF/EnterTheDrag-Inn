@@ -5,3 +5,5 @@ gpu_set_texfilter(false);
 // "none", "meat", "plate", "meal"
 holding_item = "none";
 holding_sprite = noone;	
+
+depth = -1000

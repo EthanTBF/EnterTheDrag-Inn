@@ -7,7 +7,7 @@ if (drg_happiness < 80) {
 
     // Identify which "Needs" are below the 50% threshold
     var active_bubbles = [];
-    
+    depth = -100
     if (drg_tiredness < 50) array_push(active_bubbles, spr_bubble_tired)
     if (drg_hunger < 50)    array_push(active_bubbles, spr_bubble_hungry)
     if (drg_boredom < 50)   array_push(active_bubbles, spr_bubble_bored)

@@ -78,7 +78,7 @@ if accept_key{
 						show_debug_message("Level one is locked");
 					}
 					else {
-						room_goto(rm_lunch_rush);
+						room_goto(rm_lunch_rush_old);
 						
 						show_debug_message("Go to level 1");
 					}

@@ -1,0 +1,1 @@
+spawn_timer = irandom_range(60, 120)

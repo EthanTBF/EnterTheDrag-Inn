@@ -9,6 +9,10 @@ if (can_move) {
 
 	var player_hspeed = _hmove * move_speed
 	var player_vspeed = _vmove * move_speed
+	
+	if (_hmove != 0) {
+		image_xscale = _hmove
+	}
 
 	if (_hmove != 0) {
 		hspeed = lerp(hspeed, player_hspeed, _accel)
@@ -29,6 +33,20 @@ if (can_move) {
 	if (abs(speed) < 0.1) {
 		speed = 0
 	}
+	
+	if (place_meeting(x + hspeed, y, obj_wall)) {
+        while (!place_meeting(x + sign(hspeed), y, obj_wall)) {
+            x += sign(hspeed);
+        }
+        hspeed = 0;
+    }
+
+    if (place_meeting(x, y + vspeed, obj_wall)) {
+        while (!place_meeting(x, y + sign(vspeed), obj_wall)) {
+            y += sign(vspeed);
+        }
+        vspeed = 0;
+    }
 	
 }
 

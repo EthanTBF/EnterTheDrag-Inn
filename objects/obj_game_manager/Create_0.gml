@@ -10,3 +10,5 @@ day_time = day_time_max;
 max_strikes = 3;
 current_strikes = 0;
 game_over = false;
+
+depth = -100
