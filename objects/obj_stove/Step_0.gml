@@ -1,6 +1,6 @@
 var hearth = instance_find(obj_hearth, 0);
 
-// --- 1. COOKING LOGIC ---
+// COOKING LOGIC
 if (has_steak && !is_stolen) {
     sprite_index = spr_new_stove_occupied;
     
@@ -18,25 +18,25 @@ if (has_steak && !is_stolen) {
         }
     } 
     else {
-        // Hearth is out: Even if there is meat, stop particles
+        // Hearth is out
         part_system_automatic_draw(stove_smoke, false);
         part_system_automatic_draw(stove_fire, false);
     }
 } 
 else if (is_stolen) {
-    // Meat is stolen: Stop everything and show vacant
+    // Meat is stolen
     sprite_index = spr_new_stove_vacant; 
     part_system_automatic_draw(stove_smoke, false);
     part_system_automatic_draw(stove_fire, false);
 } 
 else {
-    // NO MEAT: Explicitly turn off both systems [Fix for your issue]
+    // NO MEAT
     sprite_index = spr_new_stove_vacant;
     part_system_automatic_draw(stove_smoke, false);
     part_system_automatic_draw(stove_fire, false);
 }
 
-// --- 2. INTERACTION LOGIC ---
+// INTERACTION LOGIC
 if (point_distance(x, y, obj_player.x, obj_player.y) < 64) {
     if (keyboard_check_pressed(ord("E")) && !global.is_interacting) {
         var ui = instance_create_depth(0, 0, -10000, obj_ui_stove);
@@ -52,7 +52,7 @@ if (point_distance(x, y, obj_player.x, obj_player.y) < 64) {
     }
 }
 
-// --- 3. FAIL CONDITION ---
+// FAIL CONDITION
 if (has_steak && cook_progress >= max_cook) {
     obj_game_manager.current_strikes += 1;
 
