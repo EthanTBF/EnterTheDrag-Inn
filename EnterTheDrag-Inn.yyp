@@ -68,6 +68,7 @@
     {"id":{"name":"obj_order_view_button","path":"objects/obj_order_view_button/obj_order_view_button.yy",},},
     {"id":{"name":"obj_pause_menu","path":"objects/obj_pause_menu/obj_pause_menu.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
+    {"id":{"name":"obj_return_menu","path":"objects/obj_return_menu/obj_return_menu.yy",},},
     {"id":{"name":"obj_shelves","path":"objects/obj_shelves/obj_shelves.yy",},},
     {"id":{"name":"obj_stove","path":"objects/obj_stove/obj_stove.yy",},},
     {"id":{"name":"obj_title_menu","path":"objects/obj_title_menu/obj_title_menu.yy",},},

@@ -49,6 +49,10 @@ if (holding_item != "none") {
     else if (holding_item == "meal_burnt" || holding_item == "burnt_meal") {
         draw_sprite_ext(spr_meal_burnt, 0, x + 12, y + 8, 0.8, 0.8, 0, c_white, 1);
     }
+	
+	else if (holding_item == "blanket") {
+        draw_sprite_ext(spr_blanket, 0, x + 15, y + 28, 0.8, 0.8, 0, c_white, 1);
+    }
 
     // Fallback: if the item has a sprite, draw it anyway
     else if (holding_sprite != noone) {

@@ -1,6 +1,6 @@
-drg_boredom = 25;
-drg_hunger = 25;
-drg_tiredness = 25;
+drg_boredom = 75;
+drg_hunger = 75;
+drg_tiredness = 75;
 drg_happiness = 100;
 
 target_stat = -1;
