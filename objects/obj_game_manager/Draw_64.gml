@@ -1,5 +1,9 @@
 // Petting dragon bar
 if(instance_exists(obj_dragon)) {
+	draw_set_font(-1);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    draw_set_color(c_white);
 	if (obj_dragon.pet_hold_timer > 0) {
     var px = obj_player.x
     var py = obj_player.y - 100 // Position above head
