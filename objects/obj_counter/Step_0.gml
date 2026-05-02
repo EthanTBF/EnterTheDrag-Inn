@@ -1,35 +1,80 @@
 // Check if player is close enough to the counter
 if (distance_to_object(obj_player) < 40) {
+
     if (keyboard_check_pressed(ord("E"))) {
-        
-        // Only accept the item if it's a finished meal
-        if (string_pos("meal", obj_player.holding_item) > 0) {
-            
-            // Check if there is an active order to fulfill
-            if (ds_list_size(obj_order_manager.order_list) > 0) {
-                
-                // 1. Remove the oldest order from the ticket queue
-                ds_list_delete(obj_order_manager.order_list, 0)
-                
-                // 2. Reset player's hand
-                obj_player.holding_item = "none";
-				obj_player.holding_sprite = noone;
-                
-                // Success feedback
-                show_debug_message("Meal Delivered!")
-                
-                // Add to the score
-                global.total_score += 100
-				global.customers_served += 1;
-                
-            } else {
-                // If the player tries to deliver a meal but no one ordered one
-                show_debug_message("No one is waiting for an order right now!")
+
+        // Make sure the player is holding a finished meal
+        if (
+            obj_player.holding_item == "chicken_meal" ||
+            obj_player.holding_item == "patty_meal" ||
+            obj_player.holding_item == "patty_meal_with_topping" ||
+            obj_player.holding_item == "steak_meal" ||
+            obj_player.holding_item == "meal_burnt"
+        ) {
+
+            // Make sure there is an active order
+            if (instance_exists(obj_order_manager) && ds_list_size(obj_order_manager.order_list) > 0) {
+
+                var current_order = obj_order_manager.order_list[| 0];
+                var correct_meal = false;
+
+                // Chicken order requires chicken meal
+                if (current_order == order_type.CHICKEN) {
+                    if (obj_player.holding_item == "chicken_meal") {
+                        correct_meal = true;
+                    }
+                }
+
+                // Burger order requires topped patty meal
+                else if (current_order == order_type.BURGER) {
+                    if (obj_player.holding_item == "patty_meal_with_topping") {
+                        correct_meal = true;
+                    }
+                }
+
+                // Correct delivery
+                if (correct_meal) {
+
+                    ds_list_delete(obj_order_manager.order_list, 0);
+
+                    obj_player.holding_item = "none";
+                    obj_player.holding_sprite = noone;
+
+                    global.total_score += 100;
+                    global.customers_served += 1;
+
+                    show_debug_message("Correct meal delivered!");
+
+                    if (asset_get_index("Success_1_") != -1) {
+                        audio_play_sound(Success_1_, 130, false);
+                    }
+                }
+
+                // Wrong delivery
+                else {
+
+                    show_debug_message("Wrong meal for this order!");
+
+                    if (asset_get_index("Failure") != -1) {
+                        audio_play_sound(Failure, 130, false);
+                    }
+
+                    if (variable_global_exists("current_strikes")) {
+                        global.current_strikes += 1;
+                    }
+                    else if (instance_exists(obj_game_manager)) {
+                        obj_game_manager.current_strikes += 1;
+                    }
+                }
             }
-            
-        } else {
-            // Optional: If the player tries to hand over just a plate, raw meat, or incorrect meal
-            show_debug_message("The customers only want finished meals!")
+
+            else {
+                show_debug_message("No one is waiting for an order right now!");
+            }
+        }
+
+        else {
+            show_debug_message("The customers only want finished meals!");
         }
     }
 }

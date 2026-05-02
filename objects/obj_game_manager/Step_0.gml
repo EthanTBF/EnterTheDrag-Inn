@@ -22,19 +22,30 @@ if (!global.game_paused) {
             }
         }
         // Testing - advance to next room
-        if (keyboard_check_pressed(vk_shift)) {
-            if (room == rm_tutorial_level) {
-                room_goto(rm_lunch_rush);
-                show_debug_message("Skipped to Lunch Rush");
-            } else if (room == rm_lunch_rush) {
-                room_goto(rm_dinner_rush);
-                show_debug_message("Skipped to Dinner Rush");
-            } else if (room == rm_dinner_rush) {
-                audio_stop_all();
-                room_goto(rm_game_over);
-                show_debug_message("Skipped to Game Over");
-            }
-        }
+		if (keyboard_check_pressed(vk_shift)) {
+
+			if (room == rm_tutorial_level) {
+        global.current_level = 2;
+        global.customers_served = 0;
+        day_time = day_time_max;
+
+        room_goto(rm_lunch_rush);
+        show_debug_message("Skipped to Lunch Rush. Current level set to 2.");
+		} 
+			else if (room == rm_lunch_rush) {
+        global.current_level = 3;
+        global.customers_served = 0;
+        day_time = day_time_max;
+
+        room_goto(rm_dinner_rush);
+        show_debug_message("Skipped to Dinner Rush. Current level set to 3.");
+			} 
+	 else if (room == rm_dinner_rush) {
+        audio_stop_all();
+        room_goto(rm_game_over);
+        show_debug_message("Skipped to Game Over");
+		 }
+	}
         // Level advancement logic
         if (room != rm_main_menu) {
             if (global.customers_served >= global.customers_to_advance) {

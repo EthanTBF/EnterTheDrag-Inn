@@ -3,10 +3,11 @@ if (!global.game_paused) {
 
     if (spawn_timer <= 0 && ds_list_size(order_list) < max_orders) {
 
-        // Determine available meats based on level
+        // Determine available orders based on level
         var available = [];
         array_push(available, order_type.CHICKEN);
 
+        // Burgers unlock at level 2
         if (global.current_level >= 2) {
             array_push(available, order_type.BURGER);
         }
@@ -18,7 +19,7 @@ if (!global.game_paused) {
 
         // Reset timer
         spawn_timer = irandom_range(450, 900);
-		
-		audio_play_sound(Blip6, 130, false);
+
+        audio_play_sound(Blip6, 130, false);
     }
 }

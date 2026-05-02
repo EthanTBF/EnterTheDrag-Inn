@@ -37,26 +37,32 @@ if (mouse_check_button_pressed(mb_left)) {
 
         if (obj_player.holding_sprite != noone) {
             drag_sprite = obj_player.holding_sprite;
-        } else {
+        } 
+        else {
             drag_sprite = spr_steak_raw;
         }
     }
 
     // Pick up cooked/burnt meat from stove using plate
     if (point_distance(mx, my, ui_x, ui_y + 100) < 160) {
+
         if (linked_stove.has_steak && p >= 100) {
+
             if (obj_player.holding_item == "plate") {
 
                 var meat_type = linked_stove.cooking_item;
 
                 // Burnt pickup
                 if (p >= 150) {
-                    obj_player.holding_item = "burnt_meal";
+                    obj_player.holding_item = "meal_burnt";
                     obj_player.holding_sprite = spr_meal_burnt;
-					audio_play_sound(Failure, 130, false);
+
+                    audio_play_sound(Failure, 130, false);
                 }
+
                 // Correct cooked pickup
                 else {
+
                     if (meat_type == "chicken") {
                         obj_player.holding_item = "chicken_meal";
                         obj_player.holding_sprite = spr_chicken_meal;
@@ -73,9 +79,11 @@ if (mouse_check_button_pressed(mb_left)) {
                         obj_player.holding_item = "meal";
                         obj_player.holding_sprite = spr_meal;
                     }
-					audio_play_sound(Blip6, 130, false);
+
+                    audio_play_sound(Blip6, 130, false);
                 }
-				
+
+                // Clear stove after pickup
                 linked_stove.has_steak = false;
                 linked_stove.cook_progress = 0;
                 linked_stove.cooking_item = "none";
@@ -94,6 +102,7 @@ if (mouse_check_button_released(mb_left)) {
         if (point_distance(mx, my, ui_x, ui_y + 100) < 160) {
 
             if (!linked_stove.has_steak) {
+
                 linked_stove.has_steak = true;
                 linked_stove.cook_progress = 0;
 
@@ -101,15 +110,18 @@ if (mouse_check_button_released(mb_left)) {
 
                 if (obj_player.holding_sprite != noone) {
                     linked_stove.cooking_sprite = obj_player.holding_sprite;
-                } else {
+                } 
+                else {
                     linked_stove.cooking_sprite = spr_steak_raw;
                 }
 
                 obj_player.holding_item = "none";
                 obj_player.holding_sprite = noone;
+
+                audio_play_sound(Blip6, 130, false);
             }
         }
-		audio_play_sound(Blip6, 130, false);
+
         is_dragging_steak = false;
         drag_sprite = noone;
     }

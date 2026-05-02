@@ -1,46 +1,40 @@
-popup_sprite = spr_toppingstationpopup;
+popup_sprite = spr_topping_station_ui;
 
-// GUI center
-ui_x = display_get_gui_width() / 2;
-ui_y = display_get_gui_height() / 2;
+bacon_sprite = spr_bacon;
+bun_sprite = spr_patty_meal_with_topping; // or your bun/topping sprite if you have one
 
-// Popup size
 popup_w = sprite_get_width(popup_sprite);
 popup_h = sprite_get_height(popup_sprite);
 
-// If popup origin is top-left, draw from top-left
-popup_x = ui_x - popup_w / 2;
-popup_y = ui_y - popup_h / 2;
+popup_x = display_get_gui_width() / 2;
+popup_y = display_get_gui_height() / 2;
 
-// Slot hitbox sizes
-slot_w = 120;
-slot_h = 120;
+ui_x = popup_x;
+ui_y = popup_y;
 
-// Slot centers relative to popup top-left
-// Adjust these after testing if the click boxes are off
-bacon_slot_x = 125;
-bacon_slot_y = 210;
+// Slot positions relative to popup center
+bacon_slot_x = -170;
+bacon_slot_y = -55;
 
-bun_slot_x = 335;
-bun_slot_y = 210;
+bun_slot_x = 170;
+bun_slot_y = -55;
 
-// Drop target / meal preview position
-meal_x = ui_x;
-meal_y = ui_y + 125;
-meal_drop_radius = 170;
+slot_w = 180;
+slot_h = 180;
 
-// Topping sprites
-bacon_name = "bacon";
-bacon_sprite = spr_bacon;
+// Meal drop target
+meal_x = popup_x;
+meal_y = popup_y + 115;
+meal_drop_radius = 120;
 
-bun_name = "bun";
-bun_sprite = spr_bun;
-
-// Dragging state
+// Drag state
 is_dragging_topping = false;
 drag_topping_name = "none";
 drag_topping_sprite = noone;
 
-// Message feedback
+// Message state
 message = "";
 message_timer = 0;
+
+// Prevent same E press from opening and instantly closing UI
+close_delay = 10;

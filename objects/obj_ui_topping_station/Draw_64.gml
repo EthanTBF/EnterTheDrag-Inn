@@ -13,27 +13,17 @@ draw_sprite_ext(bacon_sprite, 0, popup_x + bacon_slot_x, popup_y + bacon_slot_y,
 draw_sprite_ext(bun_sprite, 0, popup_x + bun_slot_x, popup_y + bun_slot_y, 0.8, 0.8, 0, c_white, 1);
 
 // Draw meal preview / drop target
-if (obj_player.holding_item == "meal") {
-    draw_sprite_ext(spr_meal, 0, meal_x, meal_y, 1.2, 1.2, 0, c_white, 1);
+if (obj_player.holding_item == "patty_meal") {
+    draw_sprite_ext(spr_patty_meal, 0, meal_x, meal_y, 1.2, 1.2, 0, c_white, 1);
 }
-else if (obj_player.holding_item == "meal_bacon") {
-    draw_sprite_ext(spr_meal, 0, meal_x, meal_y, 1.2, 1.2, 0, c_white, 1);
-    draw_sprite_ext(spr_bacon, 0, meal_x, meal_y - 18, 0.65, 0.65, 0, c_white, 1);
-}
-else if (obj_player.holding_item == "meal_bun") {
-    draw_sprite_ext(spr_meal, 0, meal_x, meal_y, 1.2, 1.2, 0, c_white, 1);
-    draw_sprite_ext(spr_bun, 0, meal_x, meal_y - 24, 0.65, 0.65, 0, c_white, 1);
-}
-else if (obj_player.holding_item == "meal_bacon_bun") {
-    draw_sprite_ext(spr_meal, 0, meal_x, meal_y, 1.2, 1.2, 0, c_white, 1);
-    draw_sprite_ext(spr_bacon, 0, meal_x, meal_y - 18, 0.65, 0.65, 0, c_white, 1);
-    draw_sprite_ext(spr_bun, 0, meal_x, meal_y - 24, 0.65, 0.65, 0, c_white, 1);
+else if (obj_player.holding_item == "patty_meal_with_topping") {
+    draw_sprite_ext(spr_patty_meal_with_topping, 0, meal_x, meal_y, 1.2, 1.2, 0, c_white, 1);
 }
 else {
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
     draw_set_color(c_white);
-    draw_text(meal_x, meal_y, "Need cooked meat first");
+    draw_text(meal_x, meal_y, "Need cooked patty meal first");
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     draw_set_color(c_white);
