@@ -1,7 +1,7 @@
 var mx = device_mouse_x_to_gui(0);
 var my = device_mouse_y_to_gui(0);
 
-// Prevent the same E press that opened the UI from closing it immediately
+// Prevent same E press that opened the UI from closing it immediately
 if (close_delay > 0) {
     close_delay--;
 }
@@ -22,58 +22,59 @@ if (message_timer > 0) {
     message_timer--;
 }
 
-// Only patty meals can receive burger toppings
-var can_add_topping = (obj_player.holding_item == "patty_meal");
 
-// If already topped, do not allow more toppings
-var already_topped = (obj_player.holding_item == "patty_meal_with_topping");
-
-// Start dragging topping
+// ===============================
+// DRAG TOPPING FROM LEFT SLOT
+// ===============================
 if (mouse_check_button_pressed(mb_left) && !is_dragging_topping) {
 
-    if (already_topped) {
-        message = "Burger already has topping!";
-        message_timer = 90;
-    }
-    else if (!can_add_topping) {
-        message = "Need cooked patty meal first!";
-        message_timer = 90;
-    }
-    else {
-        // Bacon/topping slot
-        if (point_in_rectangle(
-            mx, my,
-            popup_x + bacon_slot_x - slot_w / 2,
-            popup_y + bacon_slot_y - slot_h / 2,
-            popup_x + bacon_slot_x + slot_w / 2,
-            popup_y + bacon_slot_y + slot_h / 2
-        )) {
-            is_dragging_topping = true;
-            drag_topping_name = "topping";
-            drag_topping_sprite = spr_bacon;
-        }
+    // Bacon slot hitbox
+    var bacon_x = popup_left + bacon_slot_x;
+    var bacon_y = popup_top + bacon_slot_y;
 
-        // Bun/topping slot
-        if (point_in_rectangle(
-            mx, my,
-            popup_x + bun_slot_x - slot_w / 2,
-            popup_y + bun_slot_y - slot_h / 2,
-            popup_x + bun_slot_x + slot_w / 2,
-            popup_y + bun_slot_y + slot_h / 2
-        )) {
-            is_dragging_topping = true;
-            drag_topping_name = "topping";
-            drag_topping_sprite = spr_bun;
-        }
+    if (point_in_rectangle(
+        mx, my,
+        bacon_x - 120,
+        bacon_y - 120,
+        bacon_x + 120,
+        bacon_y + 120
+    )) {
+        is_dragging_topping = true;
+        drag_topping_name = "bacon";
+        drag_topping_sprite = spr_bacon;
+    }
+
+
+    // Bun slot hitbox
+    var bun_x = popup_left + bun_slot_x;
+    var bun_y = popup_top + bun_slot_y;
+
+    if (point_in_rectangle(
+        mx, my,
+        bun_x - 120,
+        bun_y - 120,
+        bun_x + 120,
+        bun_y + 120
+    )) {
+        is_dragging_topping = true;
+        drag_topping_name = "bun";
+        drag_topping_sprite = spr_bun;
     }
 }
 
-// Release topping
+
+// ===============================
+// DROP TOPPING ONTO PLATE / BURGER
+// ===============================
 if (mouse_check_button_released(mb_left) && is_dragging_topping) {
 
-    if (point_distance(mx, my, meal_x, meal_y) < meal_drop_radius) {
+    var dropped_on_plate = point_distance(mx, my, meal_x, meal_y) < meal_drop_radius;
 
+    if (dropped_on_plate) {
+
+        // Correct item
         if (obj_player.holding_item == "patty_meal") {
+
             obj_player.holding_item = "patty_meal_with_topping";
             obj_player.holding_sprite = spr_patty_meal_with_topping;
 
@@ -81,6 +82,20 @@ if (mouse_check_button_released(mb_left) && is_dragging_topping) {
             message_timer = 60;
 
             audio_play_sound(Blip6, 130, false);
+        }
+
+        // Already topped
+        else if (obj_player.holding_item == "patty_meal_with_topping") {
+
+            message = "Burger already has topping!";
+            message_timer = 90;
+        }
+
+        // Wrong item
+        else {
+
+            message = "Need cooked patty meal first!";
+            message_timer = 90;
         }
     }
     else {
