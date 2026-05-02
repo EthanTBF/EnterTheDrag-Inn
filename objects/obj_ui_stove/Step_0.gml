@@ -53,6 +53,7 @@ if (mouse_check_button_pressed(mb_left)) {
                 if (p >= 150) {
                     obj_player.holding_item = "burnt_meal";
                     obj_player.holding_sprite = spr_meal_burnt;
+					audio_play_sound(Failure, 130, false);
                 }
                 // Correct cooked pickup
                 else {
@@ -72,8 +73,9 @@ if (mouse_check_button_pressed(mb_left)) {
                         obj_player.holding_item = "meal";
                         obj_player.holding_sprite = spr_meal;
                     }
+					audio_play_sound(Blip6, 130, false);
                 }
-
+				
                 linked_stove.has_steak = false;
                 linked_stove.cook_progress = 0;
                 linked_stove.cooking_item = "none";
@@ -107,7 +109,7 @@ if (mouse_check_button_released(mb_left)) {
                 obj_player.holding_sprite = noone;
             }
         }
-
+		audio_play_sound(Blip6, 130, false);
         is_dragging_steak = false;
         drag_sprite = noone;
     }

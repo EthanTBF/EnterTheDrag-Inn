@@ -99,6 +99,7 @@ if (point_distance(x, y, obj_player.x, obj_player.y) < 100 && keyboard_check_pre
     state = "moving_to_escape"
 	
 	part_particles_burst(ptcl_stun, x, y, ps_stun)
+	audio_play_sound(Blip7, 30, false);
 }
 
 var dx = x - prev_x;

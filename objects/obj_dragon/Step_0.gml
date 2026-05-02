@@ -23,6 +23,7 @@ if not global.game_paused{
 			drg_hunger = 100
 			obj_player.holding_item = "none"
 			obj_player.holding_sprite = noone
+			audio_play_sound(Blip7, 130, false);
 			}
 	}
 
@@ -38,6 +39,7 @@ if not global.game_paused{
 	            drg_boredom = 100
 	            pet_hold_timer = 0; // Reset timer after success
 	            show_debug_message("Dragon Entertained!")
+				audio_play_sound(Blip7, 130, false);
 	        }
 	    } else {
 	        // Reset the timer if they let go or move away
@@ -51,6 +53,7 @@ if not global.game_paused{
 	        is_napping = true
 	        nap_timer = 180 // 3 seconds
 	        obj_player.holding_item = "none"
+			audio_play_sound(Blip7, 130, false);
 	    }
 	}
 

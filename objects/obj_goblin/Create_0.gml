@@ -20,3 +20,5 @@ path_start(pth_goblin_spawn, move_speed, path_action_stop, true)
 prev_x = x
 
 show_area = true
+
+audio_play_sound(Blip24, 140, false);

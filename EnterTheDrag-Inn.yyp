@@ -49,6 +49,7 @@
     {"id":{"name":"fnt_tutorial","path":"fonts/fnt_tutorial/fnt_tutorial.yy",},},
     {"id":{"name":"fnt_ui","path":"fonts/fnt_ui/fnt_ui.yy",},},
     {"id":{"name":"DinnerRushMusic","path":"objects/DinnerRushMusic/DinnerRushMusic.yy",},},
+    {"id":{"name":"GameOverAudio","path":"objects/GameOverAudio/GameOverAudio.yy",},},
     {"id":{"name":"LunchRushMusic","path":"objects/LunchRushMusic/LunchRushMusic.yy",},},
     {"id":{"name":"obj_blanket","path":"objects/obj_blanket/obj_blanket.yy",},},
     {"id":{"name":"obj_cooler","path":"objects/obj_cooler/obj_cooler.yy",},},

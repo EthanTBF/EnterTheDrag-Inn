@@ -4,7 +4,7 @@ if (distance_to_object(obj_player) < 40) {
         if (!instance_exists(obj_ui_topping_station)) {
             instance_create_depth(0, 0, -10000, obj_ui_topping_station);
         }
-
+		audio_play_sound(Blip6, 130, false);
         global.is_interacting = true;
         global.game_paused = true;
         obj_player.can_move = false;

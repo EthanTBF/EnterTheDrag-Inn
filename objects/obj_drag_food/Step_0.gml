@@ -11,7 +11,7 @@ if (mouse_check_button_released(mb_left)) {
     global.game_paused = false;
     global.is_interacting = false;
     obj_player.can_move = true;
-
+	audio_play_sound(Blip6, 130, false);
     if (instance_exists(obj_ui_cooler_station)) {
         with (obj_ui_cooler_station) {
             instance_destroy();

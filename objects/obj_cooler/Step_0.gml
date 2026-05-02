@@ -12,6 +12,7 @@ if (distance_to_object(obj_player) < 32) {
             global.game_paused = true;
             obj_player.can_move = false;
             obj_player.speed = 0;
+			audio_play_sound(Blip6, 130, false);
         }
     }
 }
