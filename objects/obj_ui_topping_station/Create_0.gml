@@ -6,26 +6,34 @@ bun_sprite = spr_bun;
 popup_w = sprite_get_width(popup_sprite);
 popup_h = sprite_get_height(popup_sprite);
 
-popup_x = display_get_gui_width() / 2;
-popup_y = display_get_gui_height() / 2;
+gui_w = display_get_gui_width();
+gui_h = display_get_gui_height();
+
+// Top-left position of popup, centered on screen
+popup_left = (gui_w - popup_w) / 2;
+popup_top = (gui_h - popup_h) / 2;
+
+// Center of popup
+popup_x = popup_left + popup_w / 2;
+popup_y = popup_top + popup_h / 2;
 
 ui_x = popup_x;
 ui_y = popup_y;
 
-// Slot positions relative to popup center
-bacon_slot_x = -170;
-bacon_slot_y = -55;
+// Slot positions relative to popup top-left
+bacon_slot_x = 205;
+bacon_slot_y = 245;
 
-bun_slot_x = 170;
-bun_slot_y = -55;
+bun_slot_x = 525;
+bun_slot_y = 245;
 
 slot_w = 180;
 slot_h = 180;
 
-// Meal drop target
-meal_x = popup_x;
-meal_y = popup_y + 115;
-meal_drop_radius = 120;
+// Meal drop target position relative to popup top-left
+meal_x = popup_left + popup_w / 2;
+meal_y = popup_top + 430;
+meal_drop_radius = 130;
 
 // Drag state
 is_dragging_topping = false;

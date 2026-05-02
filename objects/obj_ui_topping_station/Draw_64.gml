@@ -5,12 +5,43 @@ draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 draw_set_alpha(1);
 draw_set_color(c_white);
 
-// Draw popup
-draw_sprite(popup_sprite, 0, popup_x, popup_y);
+// Draw popup using top-left coordinates
+draw_sprite_ext(
+    popup_sprite,
+    0,
+    popup_left,
+    popup_top,
+    1,
+    1,
+    0,
+    c_white,
+    1
+);
 
 // Draw topping sprites in the boxes
-draw_sprite_ext(bacon_sprite, 0, popup_x + bacon_slot_x, popup_y + bacon_slot_y, 0.8, 0.8, 0, c_white, 1);
-draw_sprite_ext(bun_sprite, 0, popup_x + bun_slot_x, popup_y + bun_slot_y, 0.8, 0.8, 0, c_white, 1);
+draw_sprite_ext(
+    bacon_sprite,
+    0,
+    popup_left + bacon_slot_x,
+    popup_top + bacon_slot_y,
+    0.8,
+    0.8,
+    0,
+    c_white,
+    1
+);
+
+draw_sprite_ext(
+    bun_sprite,
+    0,
+    popup_left + bun_slot_x,
+    popup_top + bun_slot_y,
+    0.8,
+    0.8,
+    0,
+    c_white,
+    1
+);
 
 // Draw meal preview / drop target
 if (obj_player.holding_item == "patty_meal") {
@@ -43,7 +74,7 @@ if (message_timer > 0) {
     draw_set_valign(fa_middle);
     draw_set_color(c_white);
 
-    draw_text(ui_x, popup_y + popup_h - 55, message);
+    draw_text(ui_x, popup_top + popup_h - 55, message);
 
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
