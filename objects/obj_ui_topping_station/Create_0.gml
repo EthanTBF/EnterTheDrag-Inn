@@ -1,7 +1,7 @@
-popup_sprite = spr_topping_station_ui;
+popup_sprite = spr_toppingstationpopup;
 
 bacon_sprite = spr_bacon;
-bun_sprite = spr_patty_meal_with_topping; // or your bun/topping sprite if you have one
+bun_sprite = spr_bun;
 
 popup_w = sprite_get_width(popup_sprite);
 popup_h = sprite_get_height(popup_sprite);
