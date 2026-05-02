@@ -4,11 +4,7 @@ Collaborative Game Project for ITCS4230 / ITCS5230
 
 # Team Information
 Team Name: Dragons  
-Members:  
-Amman Kamili  
-Ethan Bradley-Foo  
-Nathan Pereira  
-Hayes Bridges  
+Members: Amman Kamili, Ethan Bradley-Foo, Nathan Pereira, Hayes Bridges  
 
 # Game Overview
 You are a retired wizard running a magical restaurant powered by your fire-breathing dragon. Your goal is to survive each shift by cooking meals, serving customers, and keeping your dragon happy enough to keep the grill running.
