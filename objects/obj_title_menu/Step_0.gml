@@ -78,6 +78,7 @@ if accept_key{
 						show_debug_message("Level one is locked");
 					}
 					else {
+						global.current_level = 2
 						room_goto(rm_lunch_rush);
 						
 						show_debug_message("Go to level 1");
@@ -92,6 +93,7 @@ if accept_key{
 						show_debug_message("Level two is locked");
 					}
 					else {
+						global.current_level = 3
 						room_goto(rm_dinner_rush);
 						show_debug_message("Go to level 2");
 					}
