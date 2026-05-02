@@ -22,7 +22,7 @@ if (!global.game_paused) {
             }
         }
         // Testing - advance to next room
-        if (keyboard_check_pressed(vk_space)) {
+        if (keyboard_check_pressed(vk_shift)) {
             if (room == rm_tutorial_level) {
                 room_goto(rm_lunch_rush);
                 show_debug_message("Skipped to Lunch Rush");
