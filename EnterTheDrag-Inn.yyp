@@ -45,6 +45,7 @@
   "name":"EnterTheDrag-Inn",
   "resources":[
     {"id":{"name":"fnt_cast","path":"fonts/fnt_cast/fnt_cast.yy",},},
+    {"id":{"name":"fnt_tutorial","path":"fonts/fnt_tutorial/fnt_tutorial.yy",},},
     {"id":{"name":"fnt_ui","path":"fonts/fnt_ui/fnt_ui.yy",},},
     {"id":{"name":"obj_blanket","path":"objects/obj_blanket/obj_blanket.yy",},},
     {"id":{"name":"obj_cooler","path":"objects/obj_cooler/obj_cooler.yy",},},
@@ -68,6 +69,11 @@
     {"id":{"name":"obj_title","path":"objects/obj_title/obj_title.yy",},},
     {"id":{"name":"obj_topping_station","path":"objects/obj_topping_station/obj_topping_station.yy",},},
     {"id":{"name":"obj_trashcan","path":"objects/obj_trashcan/obj_trashcan.yy",},},
+    {"id":{"name":"obj_tutorial_cooler","path":"objects/obj_tutorial_cooler/obj_tutorial_cooler.yy",},},
+    {"id":{"name":"obj_tutorial_counter","path":"objects/obj_tutorial_counter/obj_tutorial_counter.yy",},},
+    {"id":{"name":"obj_tutorial_goblin","path":"objects/obj_tutorial_goblin/obj_tutorial_goblin.yy",},},
+    {"id":{"name":"obj_tutorial_health","path":"objects/obj_tutorial_health/obj_tutorial_health.yy",},},
+    {"id":{"name":"obj_tutorial_interact","path":"objects/obj_tutorial_interact/obj_tutorial_interact.yy",},},
     {"id":{"name":"obj_ui_cooler_station","path":"objects/obj_ui_cooler_station/obj_ui_cooler_station.yy",},},
     {"id":{"name":"obj_ui_stove","path":"objects/obj_ui_stove/obj_ui_stove.yy",},},
     {"id":{"name":"obj_ui_topping_station","path":"objects/obj_ui_topping_station/obj_ui_topping_station.yy",},},
@@ -140,6 +146,7 @@
     {"id":{"name":"spr_patty_raw","path":"sprites/spr_patty_raw/spr_patty_raw.yy",},},
     {"id":{"name":"spr_plate","path":"sprites/spr_plate/spr_plate.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
+    {"id":{"name":"spr_revised_game_over","path":"sprites/spr_revised_game_over/spr_revised_game_over.yy",},},
     {"id":{"name":"spr_shelves","path":"sprites/spr_shelves/spr_shelves.yy",},},
     {"id":{"name":"spr_steak_burnt","path":"sprites/spr_steak_burnt/spr_steak_burnt.yy",},},
     {"id":{"name":"spr_steak_cooked","path":"sprites/spr_steak_cooked/spr_steak_cooked.yy",},},
@@ -160,9 +167,9 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
     {"roomId":{"name":"rm_tutorial_level","path":"rooms/rm_tutorial_level/rm_tutorial_level.yy",},},
+    {"roomId":{"name":"rm_lunch_rush","path":"rooms/rm_lunch_rush/rm_lunch_rush.yy",},},
     {"roomId":{"name":"rm_dinner_rush","path":"rooms/rm_dinner_rush/rm_dinner_rush.yy",},},
     {"roomId":{"name":"rm_game_over","path":"rooms/rm_game_over/rm_game_over.yy",},},
-    {"roomId":{"name":"rm_lunch_rush","path":"rooms/rm_lunch_rush/rm_lunch_rush.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
