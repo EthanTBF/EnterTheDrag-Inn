@@ -152,6 +152,7 @@
     {"id":{"name":"spr_order_ticket","path":"sprites/spr_order_ticket/spr_order_ticket.yy",},},
     {"id":{"name":"spr_patty_burned","path":"sprites/spr_patty_burned/spr_patty_burned.yy",},},
     {"id":{"name":"spr_patty_cooked","path":"sprites/spr_patty_cooked/spr_patty_cooked.yy",},},
+    {"id":{"name":"spr_patty_meal_with_topping","path":"sprites/spr_patty_meal_with_topping/spr_patty_meal_with_topping.yy",},},
     {"id":{"name":"spr_patty_meal","path":"sprites/spr_patty_meal/spr_patty_meal.yy",},},
     {"id":{"name":"spr_patty_partial","path":"sprites/spr_patty_partial/spr_patty_partial.yy",},},
     {"id":{"name":"spr_patty_raw","path":"sprites/spr_patty_raw/spr_patty_raw.yy",},},
