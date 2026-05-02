@@ -1,11 +1,15 @@
 // Petting dragon bar
-if (obj_dragon.pet_hold_timer > 0) {
+if(obj_dragon) {
+	if (obj_dragon.pet_hold_timer > 0) {
     var px = obj_player.x
     var py = obj_player.y - 100 // Position above head
     
     var pc = (obj_dragon.pet_hold_timer / obj_dragon.pet_hold_max) * 100
     draw_healthbar(px - 30, py, px + 30, py + 10, pc, c_black, c_white, c_lime, 0, true, true)
+	}
 }
+
+
 
 var bar_width = 200;
 var bar_height = 20;

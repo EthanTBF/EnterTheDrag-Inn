@@ -40,3 +40,5 @@ default_ui_sounds[3] = Blip8;
 default_ui_sounds[4] = Blip9;
 
 audio_group_set_gain(audiogroup_default, 0.5, 0);
+audio_stop_all()
+audio_play_sound(MainMenu, 30, true);
